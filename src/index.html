@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wmap - a mass web screenshot tool for mapping web networks</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+<div id="main">
+    <!-- None of this code should reflected the quality of my employer, especially the JavaScript -->
+    <div class="bs-docs-section">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h1>wmap</h1>
+                    <h3>Mass Web Screenshot Tool</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form_box">
+                <div class="well bs-component">
+                    <form id="" class="form-horizontal">
+                        <fieldset>
+                            <!-- Form Name -->
+                            <legend>Scan Settings</legend>
+                            <div class="form-group">
+                                <label for="input_scan_name" class="col-lg-2 control-label">Scan Name</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" id="input_scan_name" placeholder="Web Service Scan 2014">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input_url_list" class="col-lg-2 control-label">URL List</label>
+                                <div class="col-lg-10">
+                                    <textarea class="form-control" rows="3" id="input_url_list" placeholder="http://www.example.com/test/url/example/index.html ..."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nmap_xml_input" class="col-lg-2 control-label">Nmap XML</label>
+                                <div class="col-lg-10">
+                                    <div class="fileUpload btn btn-default">
+                                        <span>Select Nmap Scan...</span>
+                                        <input type="file" id="nmap_xml_input" accept="text/xml" class="upload" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="timeout_input" class="col-lg-2 control-label">Timeout</label>
+                                <div class="col-lg-10">
+                                    <input type="number" class="form-control" id="timeout_input" value="10">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="screenshot_delay_input" class="col-lg-2 control-label">Screenshot Delay</label>
+                                <div class="col-lg-10">
+                                    <input type="number" class="form-control" id="screenshot_delay_input" value="1">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="select" class="col-lg-2 control-label">Misc</label>
+                                <div class="col-lg-10">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input id="prefer_hostname_input" type="checkbox"> Use hostname if available
+                                        </label>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input id="fullscreen_input" type="checkbox"> Fullscreen
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="select" class="col-lg-2 control-label"></label>
+                                <div class="col-lg-10">
+                                    <a href="#" id="scan_button" class="btn btn-primary btn-lg btn-block">Start Scan</a>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal fade" id="scan_complete_modal" tabindex="-1" role="dialog" aria-labelledby="scan_complete_modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h2 class="modal-title" id="scan_complete_modalLabel">Scan Complete</h2>
+                        </div>
+                        <div class="modal-body">
+                            Your scan has completed.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button id="download_report_button" type="button" class="btn btn-success">Download Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="credits" class="well well-sm">
+        Built by Matthew Bryant (aka mandatory) - <a target="_blank" href="https://github.com/mandatoryprogrammer">Github</a> - <a target="_blank" href="https://twitter.com/IAmMandatory">Twitter</a> - <a target="_blank" href="https://thehackerblog.com/">Blog</a>
+        <br />
+        <i>Please <a href="mailto:mandatory@gmail.com">bother me</a> with suggestions for this tool to make it better!</i>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/FileSaver.min.js"></script>
+<script src="js/jszip.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
